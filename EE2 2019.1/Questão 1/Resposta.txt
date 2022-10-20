@@ -1,0 +1,35 @@
+Considere a classe abaixo
+
+public class C extends Thread {
+   private Object a;
+   private Object b;
+
+   public C (Object x, Object y) {
+      a = x;
+      b = y;
+   }
+
+   public void run() {
+      synchronized (b) {
+         synchronized (a) { ... } }
+   }
+}
+ 
+Considere também o seguinte código, em que a1 e b1 são do tipo Object.
+ 
+C t1 = new C (a1, b1);
+C t2 = new C (a1, b1);
+t1.start();
+t2.start();
+
+Há a possibilidade de haver deadlock ao executarmos o código acima? Justifique.
+Se sim, explique em detalhes como pode acontecer, descrevendo uma execução intercalada problemática e os locks utilizados.
+
+
+
+
+Resposta:
+
+Não existe a possibilidade de haver deadlock, pois ambas as threads estão acessando o mesmo método run(), no qual primeiro se trava o lock do objeto "b" e depois se 
+trava o lock do objeto "a". Sendo assim, se t1 travar o lock de "b" primeiro, então t2 não terá acesso ao lock de "b" nem ao de "a", permitindo que t1 trave o lock de 
+"a" e complete as suas operações, liberando ambos os locks em seguida. Assim, t2 tem as duas travas liberadas para acessar, repetindo o processo.
