@@ -1,6 +1,6 @@
 # PLCThreads
 
-Esse repositório contém as minhas resoluções das provas EE2 da cadeira de PLC (IF686), dos assuntos de Threads em Haskell e Java.
+Esse repositório contém as minhas resoluções das EE2 de PLC (IF686), dos assuntos de Threads em Haskell e Java.
 
 [Material com as provas (EE2)](https://docs.google.com/document/d/1is5XnYhPZren2WByiJ6SlGI_Jc2g4dFw4TTotTOI02I/edit)
 
